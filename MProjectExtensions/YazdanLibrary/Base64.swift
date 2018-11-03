@@ -9,7 +9,7 @@
 import Foundation
 import JavaScriptCore
 
-extension String {
+public extension String {
     var base64JSContext: JSContext  {
         let context = JSContext()!
         context.evaluateScript("""
@@ -24,7 +24,7 @@ extension String {
         return context
     }
     
-    var base64Encoded: String? {
+    public var base64Encoded: String? {
         let base64 = base64JSContext.objectForKeyedSubscript("encode")
         if let encoded = base64?.call(withArguments: [self])?.toString() {
             return encoded
@@ -32,7 +32,7 @@ extension String {
         return nil
     }
     
-    var base64Decoded: String? {
+    public var base64Decoded: String? {
         let base64 = base64JSContext.objectForKeyedSubscript("decode")
         if let decoded = base64?.call(withArguments: [self])?.toString() {
             return decoded

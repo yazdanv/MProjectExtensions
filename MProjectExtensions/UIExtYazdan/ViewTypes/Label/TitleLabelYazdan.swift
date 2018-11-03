@@ -12,7 +12,7 @@ import UIKit
 
     public var fnt = UIFont(name: "Montserrat", size: 16)
     
-    @IBInspectable var fontSize: CGFloat {
+    @IBInspectable public var fontSize: CGFloat {
         get {return 10.0}
         set {
             self.font = self.fnt?.withSize(newValue)
